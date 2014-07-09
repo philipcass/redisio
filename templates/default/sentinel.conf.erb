@@ -5,6 +5,7 @@
 daemonize yes
 <% end %>
 pidfile <%= @piddir %>/sentinel_<%=@name%>.pid
+logfile <%= @logfile %>
 
 # port <sentinel-port>
 # The port that this sentinel instance will run on

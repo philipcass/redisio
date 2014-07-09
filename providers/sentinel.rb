@@ -92,6 +92,7 @@ def configure
           :piddir                 => piddir,
           :name                   => sentinel_name,
           :job_control            => node['redisio']['job_control'],
+          :logfile                => current['logfile'],
           :sentinel_port          => current['sentinel_port'],
           :masterip               => current['master_ip'],
           :masterport             => current['master_port'],
