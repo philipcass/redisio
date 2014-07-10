@@ -2,7 +2,7 @@
 
 
 #Just use the first redis node found
-redis_node = search(:node, "role:redis_server AND chef_environment:#{node.chef_environment}")[0]
+redis_node = search(:node, "role:redis_server_new AND chef_environment:#{node.chef_environment}")[0]
 
 if redis_node then
     node.override["redisio"]["sentinels"] = [{
