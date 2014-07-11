@@ -9,12 +9,12 @@ if redis_node and cache_node and quigit_node then
           :master_ip => redis_node['fqdn'],
           :master_port => 6379
         },{
-          :sentinel_port => '26379',
+          :sentinel_port => '26380',
           :name => 'cache',
           :master_ip => cache_node['fqdn'],
           :master_port => 6379
         },{
-          :sentinel_port => '26379',
+          :sentinel_port => '26381',
           :name => 'quigit',
           :master_ip => quigit_node['fqdn'],
           :master_port => 6379
