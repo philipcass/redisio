@@ -16,12 +16,6 @@ if redis_node then
     include_recipe "redisio::sentinel_enable"
 end
 
-Chef::Log.info("test")
-
-node.override["redisio"]["sentinels"].each do |current_sentinel|
-  sentinel_name = current_sentinel['name']
-  Chef::Log.info("sudo /etc/init.d/redis_sentinel_#{sentinel_name} restart")
-  execute "restart_sentinel" do
-      command "sudo /etc/init.d/redis_sentinel_#{sentinel_name} restart"
-  end
+execute "restart_sentinel" do
+  command "sudo /etc/init.d/redis_sentinel_kotr restart"
 end
