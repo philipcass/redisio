@@ -20,3 +20,11 @@ end
 execute "restart_sentinels" do
     action :start
 end
+
+redis['sentinels'].each do |current_sentinel|
+  sentinel_name = current_sentinel['name']
+  execute "restart_sentinel" do
+      command "service start redis_sentinel_#{sentinel_name}"
+      action :nothing
+  end
+end
