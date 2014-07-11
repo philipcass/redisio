@@ -25,7 +25,9 @@ if redis_node and cache_node and quigit_node then
 end
 
 execute "restart_sentinel" do
-  command "sudo /etc/init.d/redis_sentinel_kotr stop && sudo /etc/init.d/redis_sentinel_kotr start"
-  command "sudo /etc/init.d/redis_sentinel_cache stop && sudo /etc/init.d/redis_sentinel_cache start"
-  command "sudo /etc/init.d/redis_sentinel_quigit stop && sudo /etc/init.d/redis_sentinel_quigit start"
+  command <<-EOH
+  sudo /etc/init.d/redis_sentinel_kotr stop && sudo /etc/init.d/redis_sentinel_kotr start &&
+  sudo /etc/init.d/redis_sentinel_cache stop && sudo /etc/init.d/redis_sentinel_cache start &&
+  sudo /etc/init.d/redis_sentinel_quigit stop && sudo /etc/init.d/redis_sentinel_quigit start
+  EOH
 end
