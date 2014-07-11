@@ -17,5 +17,5 @@ if redis_node then
 end
 
 execute "restart_sentinel" do
-  command "sudo /etc/init.d/redis_sentinel_kotr restart"
+  command "sudo /etc/init.d/redis_sentinel_kotr stop && sudo /etc/init.d/redis_sentinel_kotr start"
 end
