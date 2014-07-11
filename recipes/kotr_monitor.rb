@@ -17,7 +17,7 @@ if redis_node then
     include_recipe "redisio::sentinel_enable"
 end
 
-redis['sentinels'].each do |current_sentinel|
+node["redisio"]['sentinels'].each do |current_sentinel|
   sentinel_name = current_sentinel['name']
   execute "restart_sentinel" do
       command "service start redis_sentinel_#{sentinel_name}"
