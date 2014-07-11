@@ -20,7 +20,7 @@ end
 node["redisio"]['sentinels'].each do |current_sentinel|
   sentinel_name = current_sentinel['name']
   execute "restart_sentinel" do
-      command "service start redis_sentinel_#{sentinel_name}"
+      command "service redis_sentinel_#{sentinel_name} start"
       action :nothing
   end
 end
