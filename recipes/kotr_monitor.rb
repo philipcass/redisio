@@ -17,10 +17,6 @@ if redis_node then
     include_recipe "redisio::sentinel_enable"
 end
 
-execute "restart_sentinels" do
-    action :start
-end
-
 redis['sentinels'].each do |current_sentinel|
   sentinel_name = current_sentinel['name']
   execute "restart_sentinel" do
