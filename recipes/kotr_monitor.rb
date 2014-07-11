@@ -18,9 +18,9 @@ end
 
 node["redisio"]['sentinels'].each do |current_sentinel|
   sentinel_name = current_sentinel['name']
-  Chef::Log.info("service redis_sentinel_#{sentinel_name} start")
+  Chef::Log.info("sudo /etc/init.d/redis_sentinel_#{sentinel_name} start")
   execute "restart_sentinel" do
-      command "service redis_sentinel_#{sentinel_name} start"
+      command "sudo /etc/init.d/redis_sentinel_#{sentinel_name} start"
       action :nothing
   end
 end
