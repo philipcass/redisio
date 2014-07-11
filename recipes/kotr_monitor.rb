@@ -23,11 +23,11 @@ if redis_node and cache_node and quigit_node then
     include_recipe "redisio::sentinel"
     include_recipe "redisio::sentinel_enable"
 
-    execute "restart_sentinel" do
+    execute "start_sentinel" do
       command <<-EOH
-      sudo /etc/init.d/redis_sentinel_kotr stop && sudo /etc/init.d/redis_sentinel_kotr start &&
-      sudo /etc/init.d/redis_sentinel_cache stop && sudo /etc/init.d/redis_sentinel_cache start &&
-      sudo /etc/init.d/redis_sentinel_quigit stop && sudo /etc/init.d/redis_sentinel_quigit start
+      sudo /etc/init.d/redis_sentinel_kotr start &&
+      sudo /etc/init.d/redis_sentinel_cache start &&
+      sudo /etc/init.d/redis_sentinel_quigit start
       EOH
     end
 end
