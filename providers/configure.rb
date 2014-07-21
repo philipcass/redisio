@@ -217,8 +217,7 @@ def configure
           :clusterconfigfile          => current['clusterconfigfile'],
           :clusternodetimeout         => current['clusternodetimeout'],
           :includes                   => current['includes']
-        }),
-        action :create_if_missing
+        })
       end
       #Setup init.d file
       bin_path = "/usr/local/bin"

@@ -102,6 +102,7 @@ def configure
           :parallelsyncs          => current['parallel-syncs'],
           :failovertimeout        => current['failover-timeout']
         })
+        action :create_if_missing
       end
       #Setup init.d file
       bin_path = "/usr/local/bin"
